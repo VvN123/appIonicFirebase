@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FirebaseService } from '../servicio/firebase.service';
+import { Usuario } from '../modelos/usuario';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  inputRut: string = ''
+  userInfo : Usuario = new Usuario()
+
+  constructor(private fire: FirebaseService) {}
+
+  async obtenerInfo(){
+    this.userInfo = await this.fire.getUserByRut(this.inputRut)
+  }
+
+
 
 }

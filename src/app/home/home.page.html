@@ -12,9 +12,15 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <br><br>
+  <ion-input [(ngModel)]="inputRut" type="text" placeholder="RUT" fill="solid"></ion-input>
+  <br>
+  <ion-button (click)="obtenerInfo()" expand="block" fill="solid" shape="round">
+    Buscar RUT
+  </ion-button>
+  <br>
+  <p> {{ userInfo.nombre }} </p>
+  <p> {{ userInfo.apellido }} </p>
+  <p> {{ userInfo.rut }} </p>
+  <p> {{ userInfo.sede }} </p>
 </ion-content>
