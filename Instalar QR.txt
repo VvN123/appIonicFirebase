@@ -5,6 +5,7 @@
 1. Instalar angularx-qrcode (dentro de la carpeta de la app)
 
 npm install angularx-qrcode --save
+npm i --save-dev @types/qrcode
 
 ----------------------------------------------------------------------
 
