@@ -34,14 +34,14 @@ QRCodeModule
 
 1. Instalar CAPACITOR y agregar la plataforma android (dentro de la carpeta de la app)
 
-npm install @capacitor/core @capacitor/cli
+npm install @capacitor/core @capacitor/cli --force
 npx cap add android
 
 ----------------------------------------------------------------------
 
 2. Instalar Mlkit Barcode Scanner (dentro de la carpeta de la app)
 
-npm install @capacitor-mlkit/barcode-scanning
+npm install @capacitor-mlkit/barcode-scanning --force
 npx cap sync
 
 ----------------------------------------------------------------------
