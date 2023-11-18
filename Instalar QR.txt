@@ -4,12 +4,12 @@
 
 1. Instalar angularx-qrcode (dentro de la carpeta de la app)
 
-npm install angularx-qrcode --save
-npm i --save-dev @types/qrcode
+npm install angularx-qrcode --save --force
+npm i --save-dev @types/qrcode --force
 
 ----------------------------------------------------------------------
 
-2. Importar QRCodeModule a app.module.ts (myapp\src\app\app.module.ts)
+2. Importar QRCodeModule a su componente (myapp\src\app\home\home.page.html)
 
 import { QRCodeModule } from 'angularx-qrcode';
 
