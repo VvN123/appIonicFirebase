@@ -23,4 +23,7 @@
   <p> {{ userInfo.apellido }} </p>
   <p> {{ userInfo.rut }} </p>
   <p> {{ userInfo.sede }} </p>
+
+  <qrcode *ngIf="userInfo.nombre" [qrdata]="userInfo.rut" [width]="256" [allowEmptyString]="true"></qrcode>
+
 </ion-content>
