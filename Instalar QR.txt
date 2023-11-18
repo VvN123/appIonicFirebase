@@ -9,7 +9,7 @@ npm i --save-dev @types/qrcode --force
 
 ----------------------------------------------------------------------
 
-2. Importar QRCodeModule a su componente (myapp\src\app\home\home.page.html)
+2. Importar QRCodeModule a su componente (myapp\src\app\home\home.module.ts)
 
 import { QRCodeModule } from 'angularx-qrcode';
 
