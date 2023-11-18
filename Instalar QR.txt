@@ -59,6 +59,7 @@ npx cap sync
 
 4. Importar al componente donde lo vayan a utilizar
 
+ionic g page qrscanner
 import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 
 ----------------------------------------------------------------------
