@@ -1,0 +1,94 @@
+----------------------------------------------------------------------
+                    GENERADOR DE CODIGO QR
+----------------------------------------------------------------------
+
+1. Instalar angularx-qrcode (dentro de la carpeta de la app)
+
+npm install angularx-qrcode --save
+
+----------------------------------------------------------------------
+
+2. Importar QRCodeModule a app.module.ts (myapp\src\app\app.module.ts)
+
+import { QRCodeModule } from 'angularx-qrcode';
+
+//agregar a Imports: [] 
+
+QRCodeModule
+
+----------------------------------------------------------------------
+
+3. Implementar en html
+
+<qrcode [qrdata]="INFO_PARA_QR" [width]="256" [allowEmptyString]="true"></qrcode>
+
+----------------------------------------------------------------------
+
+
+
+
+----------------------------------------------------------------------
+                    LECTOR DE CODIGO QR 
+----------------------------------------------------------------------
+
+1. Instalar Mlkit Barcode Scanner (dentro de la carpeta de la app)
+
+npm install @capacitor-mlkit/barcode-scanning
+
+----------------------------------------------------------------------
+
+2. Importar al componente o al servicio donde lo vayan a utilizar
+
+import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+
+----------------------------------------------------------------------
+
+3. Copiar los metodos definidos por la documentacion para activar y desactivar el lector
+
+  async startScan() {
+    document.body.classList.add('barcode-scanner-active');
+    const listener = await BarcodeScanner.addListener('barcodeScanned', async (result) => {
+      if (result.barcode.displayValue) {
+        this.SU_VARIABLE = result.barcode.displayValue; 
+        this.stopScan(); 
+      }
+    });
+    await BarcodeScanner.startScan();
+  }
+
+  async stopScan() {
+    document.body.classList.remove('barcode-scanner-active');
+    await BarcodeScanner.removeAllListeners();
+    await BarcodeScanner.stopScan();
+  }
+
+------------------------------------------------------------------------
+
+4. Copiar los estilos en global.scss (myapp\src\global.scss)
+
+body.barcode-scanner-active {
+    visibility: hidden;
+    --background: transparent;
+    --ion-background-color: transparent;
+  }
+  
+  // Show only the barcode scanner modal
+  .barcode-scanner-modal {
+    visibility: visible;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .barcode-scanner-modal {
+      --background: transparent;
+      --ion-background-color: transparent;
+    }
+  }
+
+------------------------------------------------------------------------
+
+
+
+
+
+**DOCUMENTACION Mlkit barcode Scanner**
+https://capawesome.io/plugins/mlkit/barcode-scanning/
