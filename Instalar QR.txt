@@ -32,19 +32,38 @@ QRCodeModule
                     LECTOR DE CODIGO QR 
 ----------------------------------------------------------------------
 
-1. Instalar Mlkit Barcode Scanner (dentro de la carpeta de la app)
+1. Instalar CAPACITOR y agregar la plataforma android (dentro de la carpeta de la app)
 
-npm install @capacitor-mlkit/barcode-scanning
+npm install @capacitor/core @capacitor/cli
+npx cap add android
 
 ----------------------------------------------------------------------
 
-2. Importar al componente o al servicio donde lo vayan a utilizar
+2. Instalar Mlkit Barcode Scanner (dentro de la carpeta de la app)
+
+npm install @capacitor-mlkit/barcode-scanning
+npx cap sync
+
+----------------------------------------------------------------------
+
+3. Actualizar el archivo AndroidManifest.xml (myapp\android\app\src\main\AndroidManifest.xml)
+
+//DENTRO DEL TAG APPLICATION
+        <meta-data android:name="com.google.mlkit.vision.DEPENDENCIES" android:value="barcode"/>
+
+//ABAJO DEL COMENTARIO PERMISSIONS
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+----------------------------------------------------------------------
+
+4. Importar al componente donde lo vayan a utilizar
 
 import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 
 ----------------------------------------------------------------------
 
-3. Copiar los metodos definidos por la documentacion para activar y desactivar el lector
+5. Copiar los metodos definidos por la documentacion para activar y desactivar el lector
 
   async startScan() {
     document.body.classList.add('barcode-scanner-active');
@@ -65,7 +84,7 @@ import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 
 ------------------------------------------------------------------------
 
-4. Copiar los estilos en global.scss (myapp\src\global.scss)
+6. Copiar los estilos en global.scss (myapp\src\global.scss)
 
 body.barcode-scanner-active {
     visibility: hidden;
